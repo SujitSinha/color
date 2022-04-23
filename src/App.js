@@ -1,12 +1,12 @@
 import {useState, useEffect} from 'react'
 import './App.css';
-import { colorsData } from './ColorsData';
 import CardGrid from './Components/CardGrid'
 
 
 function App() {
-console.log('colorsData', colorsData)
+
   const [searchedValue, setSearchedValue]= useState('')
+  const [colorsData, setColorsData] = useState('')
   const [data, setData] = useState('');
 
   useEffect(() => {
@@ -19,6 +19,12 @@ console.log('colorsData', colorsData)
     setData(filteredData);
   }
   }, [searchedValue]);
+
+  useEffect(() => {
+    fetch('https://color-names.herokuapp.com/v1/')
+    .then((res)=>res.json())
+    .then((data)=>setColorsData(data.colors))
+  },[])
 
   console.log('data', data)
 
