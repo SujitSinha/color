@@ -26,8 +26,6 @@ function App() {
     .then((data)=>setColorsData(data.colors))
   },[])
 
-  console.log('data', data)
-
   const handleColorChange=(e)=>{
     setSearchedValue(e.target.value)
   }
