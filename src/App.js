@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     if(searchedValue!=='')
     {
-    const filteredData = colorsData.filter((data) => {
+    const filteredData = colorsData?.filter((data) => {
       return data.name.toLowerCase().includes(searchedValue);
     });
 
